@@ -1,6 +1,5 @@
 const Sequelize = require('sequelize');
 const Connection = require('../config/connection');
-
 const connection = new Connection();
 const Employee = connection.sequelize.define(
   'employees',
@@ -18,7 +17,6 @@ const Employee = connection.sequelize.define(
   {
     tableName: 'employees',
     timestamps: false,
-
     underscored: true,
   },
 );
