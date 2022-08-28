@@ -11,8 +11,10 @@ const Connection = require('./config/connection');
 const PersonaRoutes = require('./routes/persona');
 const ProductoRoutes = require('./routes/producto');
 const PrecioRoutes = require('./routes/precio');
+const AlmacenRoutes = require('./routes/almacen');
+
 app.use(cors());
-app.use(express.urlencoded({extended: true}));
+app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 // se crea lo que es el puerto para la variable de entorno
@@ -21,22 +23,23 @@ app.use(express.json());
 app.use('/persona', PersonaRoutes);
 app.use('/producto', ProductoRoutes);
 app.use('/precio', PrecioRoutes);
+app.use('/almacen', AlmacenRoutes);
 const port = process.env.PORT || 3001;
 // comienza a escuchar por el puerto 3000 y devuelve el sms
 
 app.get('/', (req, res) => {
-    res.send('Up and running');
+  res.send('Up and running');
 });
 app.listen(port, () => {
-    console.log(`Server listening on port ${port}`);
-    const connection = new Connection();
-    connection.sequelize
-        .authenticate()
-        .then(() => {
-            console.log('Database connected');
-            // associations().then(() => {
-            //     console.log('Models associated')
-            // })
-        })
-        .catch((error) => console.error(error));
+  console.log(`Server listening on port ${port}`);
+  const connection = new Connection();
+  connection.sequelize
+    .authenticate()
+    .then(() => {
+      console.log('Database connected');
+      // associations().then(() => {
+      //     console.log('Models associated')
+      // })
+    })
+    .catch((error) => console.error(error));
 });
