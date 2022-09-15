@@ -18,6 +18,8 @@ const MetodoPagoRoutes = require('./routes/metodoPago');
 const PermisoRoutes = require('./routes/permiso');
 const ProveedorRoutes = require('./routes/proveedor');
 const RolRoutes = require('./routes/rol');
+const UsuarioRoutes = require('./routes/usuario');
+
 
 app.use(cors());
 app.use(express.urlencoded({ extended: true }));
@@ -36,6 +38,8 @@ app.use('/metodopago', MetodoPagoRoutes);
 app.use('/permiso', PermisoRoutes);
 app.use('/proveedor',ProveedorRoutes);
 app.use('/rol',RolRoutes);
+app.use('/usuario',UsuarioRoutes);
+
 const port = process.env.PORT || 3001;
 // comienza a escuchar por el puerto 3000 y devuelve el sms
 
